@@ -45,21 +45,23 @@ function Nav(props) {
         <span>For Teacher</span>
       </ul>
 
-      {is_authenticated ? 
+      {is_authenticated ? (
         <button className="">
           <img
             src={profileImg}
             alt="profile image"
             className="w-12 h-[2.7rem] rounded-full"
           />
-        </button> : <button className="nav-btn">{item.cont}</button>
-      }
+        </button>
+      ) : (
+        <button className="nav-btn">{item.cont}</button>
+      )}
     </nav>
   );
 }
 
 const mapStateToPros = (state) => ({
-  is_authenticated: state.auth.is_authenticated
-})
+  is_authenticated: state.auth.is_authenticated,
+});
 
 export default connect(mapStateToPros)(Nav);
